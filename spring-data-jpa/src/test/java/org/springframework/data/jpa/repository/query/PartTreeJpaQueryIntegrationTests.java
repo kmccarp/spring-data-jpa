@@ -34,6 +34,7 @@ import java.util.List;
 
 import org.hibernate.Version;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.data.domain.Page;
@@ -100,6 +101,7 @@ public class PartTreeJpaQueryIntegrationTests {
 	}
 
 	@Test // DATAJPA-121
+	@Disabled // HHH-15389
 	void recreatesQueryIfNullValueIsGiven() throws Exception {
 
 		JpaQueryMethod queryMethod = getQueryMethod("findByFirstname", String.class, Pageable.class);
@@ -126,6 +128,7 @@ public class PartTreeJpaQueryIntegrationTests {
 	}
 
 	@Test // DATAJPA-920
+	@Disabled // HHH-15389
 	void shouldSelectAliasedIdForExistsProjectionQueries() throws Exception {
 
 		JpaQueryMethod queryMethod = getQueryMethod("existsByFirstname", String.class);
@@ -137,6 +140,7 @@ public class PartTreeJpaQueryIntegrationTests {
 	}
 
 	@Test // DATAJPA-1074
+	@Disabled // HHH-15389
 	void isEmptyCollection() throws Exception {
 
 		JpaQueryMethod queryMethod = getQueryMethod("findByRolesIsEmpty");
@@ -148,6 +152,7 @@ public class PartTreeJpaQueryIntegrationTests {
 	}
 
 	@Test // DATAJPA-1074
+	@Disabled // HHH-15389
 	void isNotEmptyCollection() throws Exception {
 
 		JpaQueryMethod queryMethod = getQueryMethod("findByRolesIsNotEmpty");
