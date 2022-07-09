@@ -44,7 +44,7 @@
 
 	</properties>
 
-  <modules>
+	<modules>
 		<module>spring-data-envers</module>
 		<module>spring-data-jpa</module>
 		<module>spring-data-jpa-distribution</module>
