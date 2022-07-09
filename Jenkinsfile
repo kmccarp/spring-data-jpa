@@ -22,7 +22,7 @@ pipeline {
 			when {
 				beforeAgent(true)
 				anyOf {
-					branch(pattern: "main|(\\d\\.\\d\\.x)", comparator: "REGEXP")
+					branch(pattern: "main|(\\d\\.\\d\\.x)|hacking/hibernate-6", comparator: "REGEXP")
 					not { triggeredBy 'UpstreamCause' }
 				}
 			}
