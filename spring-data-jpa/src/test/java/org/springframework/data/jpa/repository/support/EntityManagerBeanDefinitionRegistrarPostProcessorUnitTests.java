@@ -88,6 +88,8 @@ public class EntityManagerBeanDefinitionRegistrarPostProcessorUnitTests {
 
 	static class StubEntityManagerFactoryBean extends LocalContainerEntityManagerFactoryBean {
 
+		private static final long serialVersionUID = 1;
+
 		private final Class<? extends EntityManagerFactory> emfType;
 
 		StubEntityManagerFactoryBean(Class<? extends EntityManagerFactory> emfType) {

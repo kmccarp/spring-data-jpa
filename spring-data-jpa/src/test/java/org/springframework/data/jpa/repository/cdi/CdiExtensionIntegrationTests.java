@@ -41,7 +41,7 @@ import org.apache.commons.logging.LogFactory;
 class CdiExtensionIntegrationTests {
 
 	private static SeContainer container;
-	private static Log LOGGER = LogFactory.getLog(CdiExtensionIntegrationTests.class);
+	private static Log logger = LogFactory.getLog(CdiExtensionIntegrationTests.class);
 
 	@BeforeAll
 	static void setUpCdi() {
@@ -51,7 +51,7 @@ class CdiExtensionIntegrationTests {
 				.addPackages(PersonRepository.class) //
 				.initialize();
 
-		LOGGER.debug("CDI container bootstrapped");
+		logger.debug("CDI container bootstrapped");
 	}
 
 	@AfterAll

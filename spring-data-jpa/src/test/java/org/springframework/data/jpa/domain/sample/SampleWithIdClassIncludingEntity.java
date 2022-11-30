@@ -27,6 +27,8 @@ public class SampleWithIdClassIncludingEntity {
 	@SuppressWarnings("serial")
 	public static class SampleWithIdClassPK implements Serializable {
 
+		private static final long serialVersionUID = 1;
+
 		Long first;
 		Long second;
 	}

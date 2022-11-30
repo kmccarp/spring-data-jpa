@@ -153,7 +153,7 @@ public final class BeanDefinitionUtils {
 
 		try {
 			return beanFactory.getBeanDefinition(name);
-		} catch (NoSuchBeanDefinitionException o_O) {
+		} catch (NoSuchBeanDefinitionException oO) {
 
 			BeanFactory parentBeanFactory = beanFactory.getParentBeanFactory();
 
@@ -161,7 +161,7 @@ public final class BeanDefinitionUtils {
 				return getBeanDefinition(name, (ConfigurableListableBeanFactory) parentBeanFactory);
 			}
 
-			throw o_O;
+			throw oO;
 		}
 	}
 

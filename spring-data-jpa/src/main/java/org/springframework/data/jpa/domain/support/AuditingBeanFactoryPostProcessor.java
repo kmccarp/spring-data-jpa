@@ -42,9 +42,9 @@ public class AuditingBeanFactoryPostProcessor implements BeanFactoryPostProcesso
 
 		try {
 			getBeanDefinition(BEAN_CONFIGURER_ASPECT_BEAN_NAME, beanFactory);
-		} catch (NoSuchBeanDefinitionException o_O) {
+		} catch (NoSuchBeanDefinitionException oO) {
 			throw new IllegalStateException(
-					"Invalid auditing setup; Make sure you've used @EnableJpaAuditing or <jpa:auditing /> correctly", o_O);
+					"Invalid auditing setup; Make sure you've used @EnableJpaAuditing or <jpa:auditing /> correctly", oO);
 		}
 
 		for (String beanName : getEntityManagerFactoryBeanNames(beanFactory)) {

@@ -786,6 +786,6 @@ class StringQuery implements DeclaredQuery {
 	}
 
 	static class Metadata {
-		private boolean usesJdbcStyleParameters = false;
+		private boolean usesJdbcStyleParameters;
 	}
 }

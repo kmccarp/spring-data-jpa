@@ -118,10 +118,11 @@ class CrudMethodMetadataPostProcessor implements RepositoryProxyPostProcessor, B
 
 			MethodInvocation mi = currentInvocation.get();
 
-			if (mi == null)
+			if (mi == null) {
 				throw new IllegalStateException(
 						"No MethodInvocation found: Check that an AOP invocation is in progress, and that the "
 								+ "CrudMethodMetadataPopulatingMethodInterceptor is upfront in the interceptor chain.");
+			}
 			return mi;
 		}
 

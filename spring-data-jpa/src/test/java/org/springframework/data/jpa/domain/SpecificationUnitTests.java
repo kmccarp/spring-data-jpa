@@ -51,6 +51,8 @@ import org.mockito.quality.Strictness;
 @MockitoSettings(strictness = Strictness.LENIENT)
 class SpecificationUnitTests implements Serializable {
 
+	private static final long serialVersionUID = 1;
+
 	private Specification<Object> spec;
 	@Mock(serializable = true) Root<Object> root;
 	@Mock(serializable = true) CriteriaQuery<?> query;
@@ -190,9 +192,9 @@ class SpecificationUnitTests implements Serializable {
 		Predicate firstPredicate = mock(Predicate.class);
 		Predicate secondPredicate = mock(Predicate.class);
 
-		Specification<Object> first = ((root1, query1, criteriaBuilder) -> firstPredicate);
+		Specification<Object> first = (root1, query1, criteriaBuilder) -> firstPredicate;
 
-		Specification<Object> second = ((root1, query1, criteriaBuilder) -> secondPredicate);
+		Specification<Object> second = (root1, query1, criteriaBuilder) -> secondPredicate;
 
 		first.and(second).toPredicate(root, query, builder);
 
@@ -205,9 +207,9 @@ class SpecificationUnitTests implements Serializable {
 		Predicate firstPredicate = mock(Predicate.class);
 		Predicate secondPredicate = mock(Predicate.class);
 
-		Specification<Object> first = ((root1, query1, criteriaBuilder) -> firstPredicate);
+		Specification<Object> first = (root1, query1, criteriaBuilder) -> firstPredicate;
 
-		Specification<Object> second = ((root1, query1, criteriaBuilder) -> secondPredicate);
+		Specification<Object> second = (root1, query1, criteriaBuilder) -> secondPredicate;
 
 		first.or(second).toPredicate(root, query, builder);
 
@@ -215,6 +217,8 @@ class SpecificationUnitTests implements Serializable {
 	}
 
 	static class SerializableSpecification implements Serializable, Specification<Object> {
+
+		private static final long serialVersionUID = 1;
 
 		@Override
 		public Predicate toPredicate(Root<Object> root, CriteriaQuery<?> query, CriteriaBuilder cb) {

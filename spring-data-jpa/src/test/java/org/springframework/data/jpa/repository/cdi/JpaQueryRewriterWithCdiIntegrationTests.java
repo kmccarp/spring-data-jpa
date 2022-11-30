@@ -49,7 +49,7 @@ import org.springframework.data.repository.cdi.Eager;
 public class JpaQueryRewriterWithCdiIntegrationTests {
 
 	private static SeContainer container;
-	private static Log LOGGER = LogFactory.getLog(CdiExtensionIntegrationTests.class);
+	private static Log logger = LogFactory.getLog(CdiExtensionIntegrationTests.class);
 
 	private UserRepositoryWithRewriter repository;
 
@@ -67,7 +67,7 @@ public class JpaQueryRewriterWithCdiIntegrationTests {
 				.addPackages(UserRepositoryWithRewriter.class) //
 				.initialize();
 
-		LOGGER.debug("CDI container bootstrapped");
+		logger.debug("CDI container bootstrapped");
 	}
 
 	@AfterAll

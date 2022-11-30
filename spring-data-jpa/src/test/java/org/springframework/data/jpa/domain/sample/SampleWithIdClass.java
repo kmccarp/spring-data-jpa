@@ -19,6 +19,8 @@ public class SampleWithIdClass {
 	@SuppressWarnings("serial")
 	static class SampleWithIdClassPK implements Serializable {
 
+		private static final long serialVersionUID = 1;
+
 		Long first;
 		Long second;
 

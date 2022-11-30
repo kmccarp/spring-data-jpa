@@ -300,7 +300,7 @@ public class JpaSort extends Sort {
 	 *
 	 * @author Oliver Gierke
 	 */
-	public static class Path<T, S> {
+	public static final class Path<T, S> {
 
 		private final Collection<Attribute<?, ?>> attributes;
 
@@ -325,14 +325,14 @@ public class JpaSort extends Sort {
 		 * @return
 		 */
 		public <P extends PluralAttribute<S, ?, U>, U> Path<S, U> dot(P attribute) {
-			return new Path<S, U>(add(attribute));
+			return new Path<>(add(attribute));
 		}
 
 		private List<Attribute<?, ?>> add(Attribute<?, ?> attribute) {
 
 			Assert.notNull(attribute, "Attribute must not be null");
 
-			List<Attribute<?, ?>> newAttributes = new ArrayList<Attribute<?, ?>>(attributes.size() + 1);
+			List<Attribute<?, ?>> newAttributes = new ArrayList<>(attributes.size() + 1);
 			newAttributes.addAll(attributes);
 			newAttributes.add(attribute);
 			return newAttributes;
@@ -359,7 +359,7 @@ public class JpaSort extends Sort {
 	 * @author Christoph Strobl
 	 * @author Oliver Gierke
 	 */
-	public static class JpaOrder extends Order {
+	public static final class JpaOrder extends Order {
 
 		private static final long serialVersionUID = 1L;
 

@@ -321,6 +321,8 @@ public abstract class JpaMetamodelEntityInformationIntegrationTests {
 	@SuppressWarnings("serial")
 	private static class BaseIdClass implements Serializable {
 
+		private static final long serialVersionUID = 1;
+
 		Long id;
 		Long feedRunId;
 	}
@@ -328,7 +330,7 @@ public abstract class JpaMetamodelEntityInformationIntegrationTests {
 	@MappedSuperclass
 	@IdClass(BaseIdClass.class)
 	@Access(AccessType.FIELD)
-	public static abstract class Identifiable {
+	public abstract static class Identifiable {
 
 		@Id Long id;
 		@Id Long feedRunId;
@@ -362,12 +364,16 @@ public abstract class JpaMetamodelEntityInformationIntegrationTests {
 	@Data
 	public static class EntityWithIdClassPK implements Serializable {
 
+		private static final long serialVersionUID = 1;
+
 		String id1;
 		String id2;
 	}
 
 	@Data
 	public static class EntityWithNestedIdClassPK implements Serializable {
+
+		private static final long serialVersionUID = 1;
 
 		Long id;
 		EntityWithIdClassPK reference;
@@ -376,7 +382,9 @@ public abstract class JpaMetamodelEntityInformationIntegrationTests {
 	@Entity
 	public static class EntityWithPrivateIdGetter implements Serializable {
 
-		private long id = 0;
+		private static final long serialVersionUID = 1;
+
+		private long id;
 
 		@Id
 		private long getId() {

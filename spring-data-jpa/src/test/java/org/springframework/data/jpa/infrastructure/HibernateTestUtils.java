@@ -49,8 +49,8 @@ public class HibernateTestUtils {
 
 				try {
 					return (PersistenceProvider) ClassUtils.forName(provider, classLoader).newInstance();
-				} catch (Exception o_O) {
-					throw new RuntimeException(o_O);
+				} catch (Exception oO) {
+					throw new RuntimeException(oO);
 				}
 			}
 		}

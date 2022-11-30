@@ -91,9 +91,9 @@ public class PartTreeJpaQuery extends AbstractJpaQuery {
 			this.countQuery = new CountQueryPreparer(recreationRequired);
 			this.query = tree.isCountProjection() ? countQuery : new QueryPreparer(recreationRequired);
 
-		} catch (Exception o_O) {
+		} catch (Exception oO) {
 			throw new IllegalArgumentException(
-					String.format("Failed to create query for method %s; %s", method, o_O.getMessage()), o_O);
+					String.format("Failed to create query for method %s; %s", method, oO.getMessage()), oO);
 		}
 	}
 

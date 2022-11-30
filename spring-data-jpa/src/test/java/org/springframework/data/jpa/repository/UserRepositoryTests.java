@@ -30,7 +30,6 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.Data;
 
@@ -913,12 +912,7 @@ public class UserRepositoryTests {
 
 		flushTestUsers();
 
-		Page<User> page = repository.findAll(new Specification<User>() {
-			@Override
-			public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.equal(root.get("lastname"), "Gierke");
-			}
-		}, PageRequest.of(0, 20, Sort.by("manager.lastname")));
+		Page<User> page = repository.findAll((root, query, cb) -> cb.equal(root.get("lastname"), "Gierke"), PageRequest.of(0, 20, Sort.by("manager.lastname")));
 
 		assertThat(page.getNumberOfElements()).isEqualTo(1);
 		assertThat(page).containsOnly(firstUser);
