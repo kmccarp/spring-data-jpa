@@ -272,7 +272,7 @@ public class JpaRepositoryConfigExtension extends RepositoryConfigurationExtensi
 	 * @author Mark Paluch
 	 * @since 2.1
 	 */
-	static class LazyJvmAgent {
+	static final class LazyJvmAgent {
 
 		private static final Set<String> AGENT_CLASSES;
 

@@ -519,7 +519,7 @@ public class JSqlParserQueryEnhancer implements QueryEnhancer {
 	 * </ul>
 	 */
 	enum ParsedType {
-		DELETE, UPDATE, SELECT, INSERT, MERGE;
+		DELETE, UPDATE, SELECT, INSERT, MERGE
 	}
 
 }

@@ -113,7 +113,7 @@ public class JpaMetamodelEntityInformation<T, ID> extends JpaEntityInformationSu
 
 		try {
 			return Optional.ofNullable(type.getVersion(Object.class));
-		} catch (IllegalArgumentException o_O) {
+		} catch (IllegalArgumentException oO) {
 			// Needs workarounds as the method is implemented with a strict type check on e.g. Hibernate < 4.3
 		}
 

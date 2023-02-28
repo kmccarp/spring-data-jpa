@@ -330,7 +330,7 @@ public enum PersistenceProvider implements QueryExtractor, ProxyIdAccessor, Quer
 				if (typeParameterValue.isInstance(value)) {
 					return null;
 				}
-			} catch (ClassNotFoundException | LinkageError o_O) {
+			} catch (ClassNotFoundException | LinkageError oO) {
 				return value;
 			}
 		}

@@ -77,7 +77,7 @@ class RepositoryWithIdClassKeyTests {
 
 	@Configuration
 	@EnableJpaRepositories(basePackageClasses = SampleConfig.class)
-	static abstract class Config {
+	abstract static class Config {
 
 	}
 

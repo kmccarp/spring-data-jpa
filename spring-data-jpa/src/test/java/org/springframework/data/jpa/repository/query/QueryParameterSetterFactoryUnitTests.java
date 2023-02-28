@@ -38,8 +38,8 @@ import org.springframework.data.jpa.repository.query.StringQuery.ParameterBindin
  */
 class QueryParameterSetterFactoryUnitTests {
 
-	private JpaParameters parameters = mock(JpaParameters.class, Mockito.RETURNS_DEEP_STUBS);
-	private ParameterBinding binding = mock(ParameterBinding.class);
+	private final JpaParameters parameters = mock(JpaParameters.class, Mockito.RETURNS_DEEP_STUBS);
+	private final ParameterBinding binding = mock(ParameterBinding.class);
 
 	private QueryParameterSetterFactory setterFactory;
 

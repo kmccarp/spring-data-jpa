@@ -50,7 +50,7 @@ public abstract class HibernateUtils {
 			}
 
 			// Couple of cases in which this still breaks, see HHH-15389
-		} catch (RuntimeException o_O) {}
+		} catch (RuntimeException oO) {}
 
 		// Try the old way, as it still works in some cases (haven't investigated in which exactly)
 

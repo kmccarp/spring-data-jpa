@@ -192,7 +192,7 @@ class MetaAnnotatedQueryMethodHibernateIntegrationTests {
 		assertAtLeastOneComment();
 	}
 
-	private final static Predicate<String> hasComment = s -> s.startsWith("/* foobar */");
+	private static final Predicate<String> hasComment = s -> s.startsWith("/* foobar */");
 
 	private void assertAtLeastOneComment() {
 		assertThat(testAppender.list).extracting(ILoggingEvent::getFormattedMessage)
