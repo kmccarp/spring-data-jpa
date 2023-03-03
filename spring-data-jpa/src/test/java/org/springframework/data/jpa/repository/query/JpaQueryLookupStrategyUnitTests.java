@@ -190,7 +190,7 @@ class JpaQueryLookupStrategyUnitTests {
 		RepositoryQuery query = new JpaQueryLookupStrategy.NoQuery();
 
 		assertThatIllegalStateException().isThrownBy(() -> query.execute(new Object[] {}));
-		assertThatIllegalStateException().isThrownBy(() -> query.getQueryMethod());
+		assertThatIllegalStateException().isThrownBy(query::getQueryMethod);
 	}
 
 	@Test // GH-2551

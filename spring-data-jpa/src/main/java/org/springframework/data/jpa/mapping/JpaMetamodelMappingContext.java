@@ -101,7 +101,7 @@ public class JpaMetamodelMappingContext
 	 *
 	 * @author Oliver Gierke
 	 */
-	private static class Metamodels {
+	private static final class Metamodels {
 
 		private final Set<Metamodel> metamodels;
 
@@ -177,7 +177,7 @@ public class JpaMetamodelMappingContext
 				try {
 					model.managedType(type);
 					return model;
-				} catch (IllegalArgumentException o_O) {
+				} catch (IllegalArgumentException oO) {
 
 					// Fall back to inspect *all* managed types manually as Metamodel.managedType(…) only
 					// returns for entities, embeddables and managed superclasses.

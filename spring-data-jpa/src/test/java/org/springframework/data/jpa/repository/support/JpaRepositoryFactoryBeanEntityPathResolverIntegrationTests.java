@@ -15,7 +15,8 @@
  */
 package org.springframework.data.jpa.repository.support;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanCreationException;
@@ -32,8 +33,6 @@ import org.springframework.data.querydsl.EntityPathResolver;
 import org.springframework.data.querydsl.SimpleEntityPathResolver;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import com.querydsl.core.types.EntityPath;
-
 /**
  * Unit tests for {@link EntityPathResolver} related tests on {@link JpaRepositoryFactoryBean}.
  *
@@ -48,13 +47,7 @@ class JpaRepositoryFactoryBeanEntityPathResolverIntegrationTests {
 			includeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE, classes = UserRepository.class))
 	static class BaseConfig {
 
-		static final EntityPathResolver RESOLVER = new EntityPathResolver() {
-
-			@Override
-			public <T> EntityPath<T> createPath(Class<T> domainClass) {
-				return null;
-			}
-		};
+		static final EntityPathResolver RESOLVER = domainClass -> null;
 	}
 
 	@Configuration

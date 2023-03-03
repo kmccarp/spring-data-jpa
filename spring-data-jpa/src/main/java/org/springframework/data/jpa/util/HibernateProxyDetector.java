@@ -45,7 +45,7 @@ class HibernateProxyDetector implements ProxyDetector {
 
 		try {
 			return ClassUtils.forName("org.hibernate.proxy.HibernateProxy", HibernateProxyDetector.class.getClassLoader());
-		} catch (ClassNotFoundException o_O) {
+		} catch (ClassNotFoundException oO) {
 			return null;
 		}
 	}

@@ -71,9 +71,9 @@ class QueryWithNullLikeHibernateIntegrationTests {
 	@Test
 	void customQueryWithMultipleMatch() {
 
-		List<EmployeeWithName> Employees = repository.customQueryWithNullableParam("Baggins");
+		List<EmployeeWithName> employees = repository.customQueryWithNullableParam("Baggins");
 
-		assertThat(Employees).extracting(EmployeeWithName::getName).containsExactlyInAnyOrder("Frodo Baggins",
+		assertThat(employees).extracting(EmployeeWithName::getName).containsExactlyInAnyOrder("Frodo Baggins",
 				"Bilbo Baggins");
 	}
 

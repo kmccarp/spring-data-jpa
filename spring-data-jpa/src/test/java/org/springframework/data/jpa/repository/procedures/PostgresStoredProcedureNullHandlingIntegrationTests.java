@@ -95,7 +95,7 @@ class PostgresStoredProcedureNullHandlingIntegrationTests {
 	public interface TestModelRepository extends JpaRepository<TestModel, Long> {
 
 		@Procedure("countByUuid")
-		void countUuid(UUID this_uuid);
+		void countUuid(UUID thisUuid);
 
 		@Procedure("countByLocalDate")
 		void countLocalDate(@Temporal Date localDate);

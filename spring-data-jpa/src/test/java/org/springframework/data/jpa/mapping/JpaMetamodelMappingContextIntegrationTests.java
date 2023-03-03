@@ -198,6 +198,8 @@ class JpaMetamodelMappingContextIntegrationTests {
 
 	static class UserProxy extends User implements HibernateProxy {
 
+		private static final long serialVersionUID = 1;
+
 		@Override
 		public Object writeReplace() {
 			return null;

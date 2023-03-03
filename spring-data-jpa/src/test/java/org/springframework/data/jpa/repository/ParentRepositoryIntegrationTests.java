@@ -20,7 +20,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Path;
-import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 
 import java.util.List;
@@ -33,7 +32,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.sample.Child;
 import org.springframework.data.jpa.domain.sample.Parent;
 import org.springframework.data.jpa.repository.sample.ParentRepository;
@@ -65,13 +63,10 @@ class ParentRepositoryIntegrationTests {
 	@Test // DATAJPA-287
 	void testWithoutJoin() {
 
-		Page<Parent> page = repository.findAll(new Specification<Parent>() {
-			@Override
-			public Predicate toPredicate(Root<Parent> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-				Path<Set<Child>> childrenPath = root.get("children");
-				query.distinct(true);
-				return cb.isNotEmpty(childrenPath);
-			}
+		Page<Parent> page = repository.findAll((root, query, cb) -> {
+			Path<Set<Child>> childrenPath = root.get("children");
+			query.distinct(true);
+			return cb.isNotEmpty(childrenPath);
 		}, PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "id")));
 
 		List<Parent> content = page.getContent();
@@ -86,14 +81,11 @@ class ParentRepositoryIntegrationTests {
 	@Test // DATAJPA-287
 	void testWithJoin() {
 
-		Page<Parent> page = repository.findAll(new Specification<Parent>() {
-			@Override
-			public Predicate toPredicate(Root<Parent> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-				root.join("children");
-				// we are interesting in distinct items, especially when join presents in query
-				query.distinct(true);
-				return cb.isNotEmpty(root.<Set<Child>> get("children"));
-			}
+		Page<Parent> page = repository.findAll((root, query, cb) -> {
+			root.join("children");
+			// we are interesting in distinct items, especially when join presents in query
+			query.distinct(true);
+			return cb.isNotEmpty(root.<Set<Child>>get("children"));
 		}, PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "id")));
 
 		List<Parent> content = page.getContent();

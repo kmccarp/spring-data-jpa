@@ -196,7 +196,7 @@ class StringQuery implements DeclaredQuery {
 			builder.append("(?: )?"); // some whitespace
 			builder.append("\\(?"); // optional braces around parameters
 			builder.append("(");
-			builder.append("%?(" + POSITIONAL_OR_INDEXED_PARAMETER + ")%?"); // position parameter and parameter index
+			builder.append("%?(").append(POSITIONAL_OR_INDEXED_PARAMETER).append(")%?"); // position parameter and parameter index
 			builder.append("|"); // or
 
 			// named parameter and the parameter name
@@ -786,6 +786,6 @@ class StringQuery implements DeclaredQuery {
 	}
 
 	static class Metadata {
-		private boolean usesJdbcStyleParameters = false;
+		private boolean usesJdbcStyleParameters;
 	}
 }

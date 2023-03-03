@@ -41,7 +41,7 @@ import org.springframework.data.repository.query.parser.Part.Type;
  */
 class StringQueryUnitTests {
 
-	private SoftAssertions softly = new SoftAssertions();
+	private final SoftAssertions softly = new SoftAssertions();
 
 	@Test // DATAJPA-341
 	void doesNotConsiderPlainLikeABinding() {

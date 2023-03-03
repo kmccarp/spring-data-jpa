@@ -178,7 +178,7 @@ public abstract class JpaQueryExecution {
 		private long count(AbstractJpaQuery repositoryQuery, JpaParametersParameterAccessor accessor) {
 
 			List<?> totals = repositoryQuery.createCountQuery(accessor).getResultList();
-			return (totals.size() == 1 ? CONVERSION_SERVICE.convert(totals.get(0), Long.class) : totals.size());
+			return totals.size() == 1 ? CONVERSION_SERVICE.convert(totals.get(0), Long.class) : totals.size();
 		}
 	}
 
@@ -333,7 +333,7 @@ public abstract class JpaQueryExecution {
 
 		private static final String NO_SURROUNDING_TRANSACTION = "You're trying to execute a streaming query method without a surrounding transaction that keeps the connection open so that the Stream can actually be consumed; Make sure the code consuming the stream uses @Transactional or any other way of declaring a (read-only) transaction";
 
-		private static Method streamMethod = ReflectionUtils.findMethod(Query.class, "getResultStream");
+		private static final Method streamMethod = ReflectionUtils.findMethod(Query.class, "getResultStream");
 
 		@Override
 		protected Object doExecute(final AbstractJpaQuery query, JpaParametersParameterAccessor accessor) {
@@ -374,7 +374,7 @@ public abstract class JpaQueryExecution {
 				Class<?> optionalType = ClassUtils.forName("java.util.Optional", classLoader);
 				conversionService.removeConvertible(Object.class, optionalType);
 
-			} catch (ClassNotFoundException | LinkageError o_O) {}
+			} catch (ClassNotFoundException | LinkageError oO) {}
 		}
 	}
 }

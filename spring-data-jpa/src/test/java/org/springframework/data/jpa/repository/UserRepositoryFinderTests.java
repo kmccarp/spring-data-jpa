@@ -291,7 +291,7 @@ class UserRepositoryFinderTests {
 	void rejectsStreamExecutionIfNoSurroundingTransactionActive() {
 
 		assertThatExceptionOfType(InvalidDataAccessApiUsageException.class)
-				.isThrownBy(() -> userRepository.findAllByCustomQueryAndStream());
+				.isThrownBy(userRepository::findAllByCustomQueryAndStream);
 	}
 
 	@Test // DATAJPA-1334
