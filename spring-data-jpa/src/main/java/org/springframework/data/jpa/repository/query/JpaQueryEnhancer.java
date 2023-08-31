@@ -30,7 +30,7 @@ import org.springframework.util.Assert;
  * @see JpqlQueryParser
  * @see HqlQueryParser
  */
-class JpaQueryEnhancer implements QueryEnhancer {
+final class JpaQueryEnhancer implements QueryEnhancer {
 
 	private final DeclaredQuery query;
 	private final JpaQueryParserSupport queryParser;
