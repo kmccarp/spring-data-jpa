@@ -622,7 +622,7 @@ public abstract class QueryUtils {
 			} else {
 
 				String alias = QueryUtils.detectAlias(originalQuery);
-				if (("*".equals(variable) && alias != null)) {
+				if ("*".equals(variable) && alias != null) {
 					replacement = alias;
 				}
 			}
@@ -814,8 +814,9 @@ public abstract class QueryUtils {
 		String segment = property.getSegment();
 
 		// already inner joined so outer join is useless
-		if (isAlreadyInnerJoined(from, segment))
+		if (isAlreadyInnerJoined(from, segment)) {
 			return false;
+		}
 
 		Bindable<?> propertyPathModel;
 		Bindable<?> model = from.getModel();

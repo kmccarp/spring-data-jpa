@@ -72,9 +72,9 @@ class QueryWithNullLikeIntegrationTests {
 	@Test
 	void customQueryWithMultipleMatch() {
 
-		List<EmployeeWithName> Employees = repository.customQueryWithNullableParam("Baggins");
+		List<EmployeeWithName> employees = repository.customQueryWithNullableParam("Baggins");
 
-		assertThat(Employees).extracting(EmployeeWithName::getName).containsExactlyInAnyOrder("Frodo Baggins",
+		assertThat(employees).extracting(EmployeeWithName::getName).containsExactlyInAnyOrder("Frodo Baggins",
 				"Bilbo Baggins");
 	}
 
@@ -267,7 +267,7 @@ class QueryWithNullLikeIntegrationTests {
 	@Test // GH-1184
 	void mismatchedReturnTypeShouldCauseException() {
 		assertThatExceptionOfType(ConversionFailedException.class)
-				.isThrownBy(() -> repository.customQueryWithMismatchedReturnType());
+				.isThrownBy(repository::customQueryWithMismatchedReturnType);
 	}
 
 	@Test // GH-1184

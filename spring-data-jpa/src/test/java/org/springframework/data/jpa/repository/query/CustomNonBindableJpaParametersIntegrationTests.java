@@ -106,7 +106,7 @@ class CustomNonBindableJpaParametersIntegrationTests {
 		}
 	}
 
-	private static class NonBindableAwareJpaQueryMethodFactory implements JpaQueryMethodFactory {
+	private static final class NonBindableAwareJpaQueryMethodFactory implements JpaQueryMethodFactory {
 
 		private final QueryExtractor extractor;
 

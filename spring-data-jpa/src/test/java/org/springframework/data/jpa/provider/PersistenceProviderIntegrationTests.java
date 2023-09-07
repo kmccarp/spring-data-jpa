@@ -67,7 +67,7 @@ public abstract class PersistenceProviderIntegrationTests {
 	@Test // DATAJPA-630
 	public void testname() {
 
-		new TransactionTemplate(transactionManager).execute(new TransactionCallback<Void>() {
+		new TransactionTemplate(transactionManager).execute(new TransactionCallback<>() {
 
 			@Override
 			public Void doInTransaction(TransactionStatus status) {
