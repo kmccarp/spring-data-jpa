@@ -200,7 +200,7 @@ class StringQuery implements DeclaredQuery {
 			builder.append("(?: )?"); // some whitespace
 			builder.append("\\(?"); // optional braces around parameters
 			builder.append("(");
-			builder.append("%?(" + POSITIONAL_OR_INDEXED_PARAMETER + ")%?"); // position parameter and parameter index
+			builder.append("%?(").append(POSITIONAL_OR_INDEXED_PARAMETER).append(")%?"); // position parameter and parameter index
 			builder.append("|"); // or
 
 			// named parameter and the parameter name
@@ -298,7 +298,7 @@ class StringQuery implements DeclaredQuery {
 							parameterBindings.register(new LikeParameterBinding(queryParameter, origin, likeType));
 						} else {
 							targetBinding = parameterBindings.register(queryParameter, origin,
-									(identifier) -> new LikeParameterBinding(identifier, origin, likeType));
+									identifier -> new LikeParameterBinding(identifier, origin, likeType));
 						}
 
 						break;
@@ -316,7 +316,7 @@ class StringQuery implements DeclaredQuery {
 							parameterBindings.register(new ParameterBinding(queryParameter, origin));
 						} else {
 							targetBinding = parameterBindings.register(queryParameter, origin,
-									(identifier) -> new ParameterBinding(identifier, origin));
+									identifier -> new ParameterBinding(identifier, origin));
 						}
 				}
 
@@ -449,7 +449,7 @@ class StringQuery implements DeclaredQuery {
 	}
 
 	private static class Metadata {
-		private boolean usesJdbcStyleParameters = false;
+		private boolean usesJdbcStyleParameters;
 	}
 
 	/**

@@ -65,7 +65,7 @@ class ParentRepositoryIntegrationTests {
 	@Test // DATAJPA-287
 	void testWithoutJoin() {
 
-		Page<Parent> page = repository.findAll(new Specification<Parent>() {
+		Page<Parent> page = repository.findAll(new Specification<>() {
 			@Override
 			public Predicate toPredicate(Root<Parent> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Path<Set<Child>> childrenPath = root.get("children");
@@ -86,7 +86,7 @@ class ParentRepositoryIntegrationTests {
 	@Test // DATAJPA-287
 	void testWithJoin() {
 
-		Page<Parent> page = repository.findAll(new Specification<Parent>() {
+		Page<Parent> page = repository.findAll(new Specification<>() {
 			@Override
 			public Predicate toPredicate(Root<Parent> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				root.join("children");
