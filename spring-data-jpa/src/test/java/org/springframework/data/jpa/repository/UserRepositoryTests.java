@@ -931,7 +931,7 @@ class UserRepositoryTests {
 
 		flushTestUsers();
 
-		Page<User> page = repository.findAll(new Specification<User>() {
+		Page<User> page = repository.findAll(new Specification<>() {
 			@Override
 			public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				return cb.equal(root.get("lastname"), "Gierke");
