@@ -169,7 +169,7 @@ public class EnversRevisionRepositoryImpl<T, ID, N extends Number & Comparable<N
 
 		AuditQuery baseQuery = createBaseQuery(id);
 
-		List<AuditOrder> orderMapped = (pageable.getSort() instanceof RevisionSort) ?
+		List<AuditOrder> orderMapped = pageable.getSort() instanceof RevisionSort ?
 				Collections.singletonList(mapRevisionSort((RevisionSort) pageable.getSort())) :
 				mapPropertySort(pageable.getSort());
 
