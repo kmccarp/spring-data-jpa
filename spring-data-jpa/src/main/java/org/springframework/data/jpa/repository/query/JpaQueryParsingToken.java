@@ -128,7 +128,7 @@ class JpaQueryParsingToken {
 	/**
 	 * Switch the last {@link JpaQueryParsingToken}'s spacing to {@literal true}.
 	 */
-	static void SPACE(List<JpaQueryParsingToken> tokens) {
+	static void sPACE(List<JpaQueryParsingToken> tokens) {
 
 		if (!tokens.isEmpty()) {
 
@@ -143,7 +143,7 @@ class JpaQueryParsingToken {
 	/**
 	 * Switch the last {@link JpaQueryParsingToken}'s spacing to {@literal false}.
 	 */
-	static void NOSPACE(List<JpaQueryParsingToken> tokens) {
+	static void nOSPACE(List<JpaQueryParsingToken> tokens) {
 
 		if (!tokens.isEmpty()) {
 
@@ -158,7 +158,7 @@ class JpaQueryParsingToken {
 	/**
 	 * Drop the last entry from the list of {@link JpaQueryParsingToken}s.
 	 */
-	static void CLIP(List<JpaQueryParsingToken> tokens) {
+	static void cLIP(List<JpaQueryParsingToken> tokens) {
 
 		if (!tokens.isEmpty()) {
 			tokens.remove(tokens.size() - 1);
